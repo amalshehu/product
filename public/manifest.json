@@ -1,0 +1,16 @@
+{
+  "name": "FakeStore",
+  "short_name": "FakeStore",
+  "description": "A modern e-commerce platform showcasing products",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f9fafb",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
