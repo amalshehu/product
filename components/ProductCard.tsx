@@ -9,10 +9,10 @@ interface ProductCardProps {
 export default function ProductCard({ product, priority = false }: ProductCardProps) {
   return (
     <div
-      key={product.id}
-      className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow min-h-[400px] flex flex-col"
-      role="article"
-      aria-labelledby={`product-title-${product.id}`}
+    key={product.id}
+    className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow min-h-[400px] flex flex-col"
+    role="listitem"
+    aria-labelledby={`product-title-${product.id}`}
     >
       <div className="w-full h-48 mb-4 relative">
         <Image
