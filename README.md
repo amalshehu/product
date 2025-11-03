@@ -7,6 +7,12 @@
 
 A modern, professional e-commerce product listing application built with Next.js, featuring advanced data fetching, error handling, accessibility, and comprehensive testing. Displays curated products from the FakeStore API with intelligent sorting and caching capabilities.
 
+## Performance
+
+Achieving a perfect 100/100 score on Google PageSpeed Insights!
+
+![PageSpeed Insights Score](public/perf.png)
+
 ## Features
 
 ### Core Functionality
@@ -92,6 +98,9 @@ yarn dev
 
 ```
 ├── app/
+│   ├── api/
+│   │   └── products/
+│   │       └── route.ts             # API route to proxy FakeStore API requests
 │   ├── page.tsx                    # Main application page with error boundary
 │   └── layout.tsx                  # Root layout component
 ├── components/
@@ -113,9 +122,9 @@ yarn dev
 
 ## API Reference
 
-The app uses the [FakeStore API](https://fakestoreapi.com/docs) to fetch product data:
+The app uses the [FakeStore API](https://fakestoreapi.com/docs) to fetch product data via a proxied endpoint to avoid CORS issues:
 
-- **Endpoint**: `https://fakestoreapi.com/products?limit=6`
+- **Local Endpoint**: `/api/products` (proxies to `https://fakestoreapi.com/products?limit=6`)
 - **Response**: Array of product objects containing:
   - `id`: Unique product identifier
   - `title`: Product name
