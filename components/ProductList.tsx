@@ -40,8 +40,8 @@ export default function ProductList() {
       <h1 className="text-4xl font-extrabold text-center mb-8 text-gray-900">
         FakeStore
       </h1>
-      <p className="text-center text-gray-600 mb-8">
-        Discover amazing products at unbeatable prices
+      <p className="text-center text-gray-800 mb-8">
+      Discover amazing products at unbeatable prices
       </p>
       {error && (
         <div className="text-center text-red-600 mb-4">
@@ -97,8 +97,8 @@ export default function ProductList() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             role="list"
           >
-            {sortedProducts.map((p) => (
-              <ProductCard key={p.id} product={p} />
+            {sortedProducts.map((p, index) => (
+              <ProductCard key={p.id} product={p} priority={index === 0} />
             ))}
           </div>
         </>

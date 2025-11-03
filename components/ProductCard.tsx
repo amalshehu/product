@@ -3,9 +3,10 @@ import { Product } from "../services/productService";
 
 interface ProductCardProps {
   product: Product;
+  priority?: boolean;
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product, priority = false }: ProductCardProps) {
   return (
     <div
       key={product.id}
@@ -15,9 +16,10 @@ export default function ProductCard({ product }: ProductCardProps) {
     >
       <div className="w-full h-48 mb-4 relative">
         <Image
-          src={product.image}
-          alt={product.title}
-          fill
+        src={product.image}
+        alt={product.title}
+        fill
+        priority={priority}
           className="rounded-md object-contain"
         />
       </div>
@@ -33,14 +35,14 @@ export default function ProductCard({ product }: ProductCardProps) {
       >
         {product.category}
       </span>
-      <p className="text-sm text-gray-700 mb-2 line-clamp-3" aria-label="Product description">
-        {product.description}
+      <p className="text-sm text-gray-800 mb-2 line-clamp-3" aria-label="Product description">
+      {product.description}
       </p>
       <div className="flex items-center mb-2" aria-label={`Rating: ${product.rating.rate} out of 5 stars`}>
-        <span className="text-yellow-500" aria-hidden="true">★</span>
-        <span className="text-sm text-gray-600 ml-1">
-          {product.rating.rate} ({product.rating.count} reviews)
-        </span>
+      <span className="text-yellow-500" aria-hidden="true">★</span>
+      <span className="text-sm text-gray-800 ml-1">
+      {product.rating.rate} ({product.rating.count} reviews)
+      </span>
       </div>
       <p className="text-xl font-bold text-green-600" aria-label={`Price: ${product.price} dollars`}>
         ${product.price}
