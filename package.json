@@ -16,6 +16,11 @@
     "react-dom": "19.2.0",
     "swr": "^2.3.6"
   },
+  "browserslist": [
+  ">0.5%",
+    "not dead",
+    "not op_mini all"
+  ],
   "devDependencies": {
     "@next/bundle-analyzer": "^16.0.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",

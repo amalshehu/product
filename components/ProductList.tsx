@@ -82,13 +82,13 @@ export default function ProductList() {
         <>
           <div className="flex justify-end mb-6">
             <button
-              onClick={toggleSort}
-              disabled={isLoading}
-              className="bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors border border-gray-300"
-              aria-label={`Sort products by price ${
-                sortAsc ? "ascending" : "descending"
-              }`}
-              aria-pressed={sortAsc}
+            onClick={toggleSort}
+            disabled={isLoading}
+            className="bg-gray-200 hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed text-gray-900 font-medium py-2 px-4 rounded-lg transition-colors border border-gray-400"
+            aria-label={`Sort products by price ${
+            sortAsc ? "ascending" : "descending"
+            }`}
+            aria-pressed={sortAsc}
             >
               Sort by Price {sortAsc ? "↑" : "↓"}
             </button>
