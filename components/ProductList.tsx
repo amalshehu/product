@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import useSWR from "swr";
 import {
   Product,
@@ -8,7 +8,12 @@ import {
 } from "../services/productService";
 import ProductCard from "./ProductCard";
 
-export default function ProductList() {
+interface ProductListProps {
+  initialProducts: Product[];
+  initialError?: string;
+}
+
+export default function ProductList({ initialProducts, initialError }: ProductListProps) {
   const [sortAsc, setSortAsc] = useState(true);
   const {
     data: products,
@@ -16,9 +21,17 @@ export default function ProductList() {
     isLoading,
     mutate,
   } = useSWR<Product[]>("products", fetchProductsService, {
+    fallbackData: initialProducts,
     revalidateOnFocus: false,
     dedupingInterval: 300000, // 5 minutes
   });
+
+  // Handle initial error from server-side rendering
+  useEffect(() => {
+    if (initialError && !products) {
+      mutate();
+    }
+  }, [initialError, products, mutate]);
 
   const sortedProducts = useMemo(() => {
     if (!products) return [];

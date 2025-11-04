@@ -12,12 +12,17 @@ export default function Footer() {
             </p>
           </div>
           <div>
-            <h3 className="text-md font-medium text-gray-900 mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-              <Link href="/" className="text-gray-800 hover:text-blue-600 text-sm transition-colors">
+          <h3 className="text-md font-medium text-gray-900 mb-4">Quick Links</h3>
+          <ul className="space-y-2">
+          <li>
+            <Link href="/" className="text-gray-800 hover:text-blue-600 text-sm transition-colors">
               Home
-              </Link>
+            </Link>
+          </li>
+            <li>
+                <Link href="/cart" className="text-gray-800 hover:text-blue-600 text-sm transition-colors">
+                  Shopping Cart
+                </Link>
               </li>
             </ul>
           </div>

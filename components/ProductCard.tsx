@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Product } from "../services/productService";
 
 interface ProductCardProps {
@@ -7,13 +8,13 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product, priority = false }: ProductCardProps) {
-  return (
-    <div
-    key={product.id}
-    className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow min-h-[400px] flex flex-col"
-    role="listitem"
-    aria-labelledby={`product-title-${product.id}`}
-    >
+return (
+<Link href={`/products/${product.id}`} className="block">
+  <div
+  className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow min-h-[400px] flex flex-col cursor-pointer"
+  role="listitem"
+  aria-labelledby={`product-title-${product.id}`}
+  >
       <div className="w-full h-48 mb-4 relative">
         <Image
         src={product.image}
@@ -47,6 +48,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
       <p className="text-xl font-bold text-green-600" aria-label={`Price: ${product.price} dollars`}>
         ${product.price}
       </p>
-    </div>
-  );
+      </div>
+      </Link>
+      );
 }
